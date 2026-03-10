@@ -1,0 +1,29 @@
+{
+  "name": "SiteSettings",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "general",
+        "contact",
+        "social",
+        "seo",
+        "integrations"
+      ]
+    },
+    "label": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "key",
+    "category"
+  ]
+}
