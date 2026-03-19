@@ -5,34 +5,34 @@ import { Button } from "@/components/ui/button";
 
 const POSTS = [
   {
-    image:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80",
+    image: "/instagram/first-post.jpg",
     likes: 234,
+    link: "https://www.instagram.com/p/DUdrPK3DbJU/?img_index=4",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&q=80",
+    image: "/instagram/second-post.jpg",
     likes: 189,
+    link: "https://www.instagram.com/p/DUQTi9ojZ0Q/?img_index=2",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1595959183082-7b570b7e1e6b?w=400&q=80",
+    image: "/instagram/third-post.jpg",
     likes: 312,
+    link: "https://www.instagram.com/p/DUQTi9ojZ0Q/?img_index=2",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1560869713-7d0a29430803?w=400&q=80",
+    image: "/instagram/fourth-post.jpg",
     likes: 156,
+    link: "https://www.instagram.com/p/DS8MAZMDZga/?img_index=2",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80",
+    image: "/instagram/fifth-post.jpg",
     likes: 278,
+    link: "https://www.instagram.com/p/DTF-BftDT72/?img_index=2",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=400&q=80",
+    image: "/instagram/sixth-post.jpg",
     likes: 198,
+    link: "https://www.instagram.com/p/DSdhfQKDVUf/?img_index=2",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function InstagramFeed() {
           {POSTS.map((post, i) => (
             <motion.a
               key={i}
-              href="https://instagram.com"
+              href={post.link}
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -72,7 +72,7 @@ export default function InstagramFeed() {
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
               />
-              
+
               <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-300 flex items-center justify-center">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2 text-white">
                   <Heart className="w-5 h-5" />

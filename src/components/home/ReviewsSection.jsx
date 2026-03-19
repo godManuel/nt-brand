@@ -55,7 +55,7 @@ export default function ReviewsSection() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {REVIEWS.map((review, i) => (
             <motion.div
               key={review.name}
