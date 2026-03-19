@@ -55,6 +55,7 @@ import AdminBookings from "./pages/AdminBookings";
 import AdminTeam from "./pages/AdminTeam";
 import AdminServices from "./pages/AdminServices";
 import AdminProducts from "./pages/AdminProducts";
+import AdminLogin from './pages/AdminLogin'
 import AdminSettings from "./pages/AdminSettings";
 import __Layout from "./Layout.jsx";
 
@@ -68,6 +69,7 @@ export const PAGES = {
   AdminServices: AdminServices,
   AdminProducts: AdminProducts,
   AdminSettings: AdminSettings,
+  AdminLogin: AdminLogin
 };
 
 export const pagesConfig = {

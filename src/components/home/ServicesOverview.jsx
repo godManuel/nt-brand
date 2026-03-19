@@ -17,32 +17,28 @@ const SERVICES = [
     title: "Sisterlocks Installation",
     description:
       "Precision-installed sisterlocks using the patented technique for a natural, versatile look.",
-    image:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
+    image: "/sister-locs.jpg",
   },
   {
     icon: Scissors,
     title: "Microlocs Installation",
     description:
       "Beautiful, uniform microlocs crafted with care for all hair types and textures.",
-    image:
-      "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=80",
+    image: "/microlocs-pic.jpg",
   },
   {
     icon: Repeat,
     title: "Retie & Maintenance",
     description:
       "Regular maintenance to keep your locs healthy, neat, and thriving at every stage.",
-    image:
-      "https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&q=80",
+    image: "/retie.jpg",
   },
   {
     icon: GraduationCap,
     title: "Training & Education",
     description:
       "Learn the art of locs through our professional training programs and workshops.",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80",
+    image: "/training-pic.jpg",
   },
 ];
 

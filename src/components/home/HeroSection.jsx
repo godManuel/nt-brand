@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, MessageCircle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-const WHATSAPP_NUMBER = "1234567890";
+const WHATSAPP_NUMBER = "+447407326662";
 const WHATSAPP_MSG = encodeURIComponent(
   "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.",
 );

@@ -8,20 +8,22 @@ import {
   Clock,
   DollarSign,
   ChevronRight,
+  PoundSterlingIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-const WHATSAPP_NUMBER = "1234567890";
+
+
+const WHATSAPP_NUMBER = "+447407326662";
 
 const HAIR_SERVICES = [
   {
     title: "Sisterlocks Installation",
     description:
       "Full head sisterlocks installation using the patented 4-point interlocking technique. Includes consultation and first retie.",
-    duration: "12-20 hours",
-    priceRange: "$800 - $1,500",
-    image:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
+    duration: "6-48 hours",
+    priceRange: "£400",
+    image: "/sister-locs.jpg",
     whatsappMsg:
       "Hi! I'm interested in Sisterlocks installation. Can you tell me more?",
   },
@@ -29,10 +31,10 @@ const HAIR_SERVICES = [
     title: "Microlocs Installation",
     description:
       "Beautiful, uniform microlocs installed with precision. Choose from crochet, interlocking, or two-strand twist methods.",
-    duration: "8-16 hours",
+    duration: "6-48 hours",
     priceRange: "$600 - $1,200",
     image:
-      "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=80",
+      "/microlocs-pic.jpg",
     whatsappMsg:
       "Hi! I'm interested in Microlocs installation. Can you tell me more?",
   },
@@ -42,8 +44,7 @@ const HAIR_SERVICES = [
       "Regular maintenance to keep your locs tight, healthy, and looking their best. Recommended every 4-6 weeks.",
     duration: "2-6 hours",
     priceRange: "$150 - $350",
-    image:
-      "https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&q=80",
+    image: "/retie.jpg",
     whatsappMsg: "Hi! I'd like to book a retie maintenance appointment.",
   },
   {
@@ -52,8 +53,7 @@ const HAIR_SERVICES = [
       "Expert repair for thinning, damaged, or broken locs. Includes assessment and customized repair plan.",
     duration: "3-8 hours",
     priceRange: "$200 - $500",
-    image:
-      "https://images.unsplash.com/photo-1595959183082-7b570b7e1e6b?w=600&q=80",
+    image: "repar.jpg",
     whatsappMsg: "Hi! I need help with loc repair. Can we discuss my options?",
   },
   {
@@ -62,8 +62,7 @@ const HAIR_SERVICES = [
       "Creative loc styling for special occasions or everyday looks. Updos, braids, twists, and more.",
     duration: "1-3 hours",
     priceRange: "$75 - $200",
-    image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80",
+    image: "/loc-styling.jpg",
     whatsappMsg: "Hi! I'd like to book a loc styling appointment.",
   },
 ];
@@ -98,10 +97,10 @@ export default function HairServices() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border/30 hover:shadow-md transition-shadow"
+              className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border/30 hover:shadow-md transition-shadow h-80"
             >
               <div className="flex flex-col md:flex-row">
-                <div className="md:w-72 lg:w-80 h-52 md:h-auto flex-shrink-0">
+                <div className="md:w-72 lg:w-80 h-full md:h-full flex-shrink-0">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -122,11 +121,11 @@ export default function HairServices() {
                       {service.duration}
                     </div>
                     <div className="flex items-center gap-1.5 text-sm text-foreground/70">
-                      <DollarSign className="w-4 h-4 text-accent" />
+                      <PoundSterlingIcon className="w-4 h-4 text-accent" />
                       {service.priceRange}
                     </div>
                   </div>
-                  <div className="flex flex-col sm:flex-row gap-3 mt-6 mt-auto pt-4">
+                  <div className="flex flex-col sm:flex-row gap-3 mt-6 pt-4">
                     <Link to={createPageUrl("BookConsultation")}>
                       <Button className="w-full sm:w-auto h-12 px-6 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-sm font-medium">
                         <Calendar className="w-4 h-4 mr-2" />

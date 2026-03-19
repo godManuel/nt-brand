@@ -50,7 +50,7 @@ export default function InstagramFeed() {
           <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground">
             Follow Our Journey
           </h2>
-          <p className="text-muted-foreground mt-3 text-sm">@locluxe</p>
+          <p className="text-muted-foreground mt-3 text-sm">@hairbynt_uk</p>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
@@ -72,6 +72,7 @@ export default function InstagramFeed() {
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
               />
+              
               <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-300 flex items-center justify-center">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2 text-white">
                   <Heart className="w-5 h-5" />
@@ -84,7 +85,7 @@ export default function InstagramFeed() {
 
         <div className="text-center mt-8">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/hairbynt_uk"
             target="_blank"
             rel="noopener noreferrer"
           >

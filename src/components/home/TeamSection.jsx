@@ -4,23 +4,23 @@ import { Instagram, Award } from "lucide-react";
 
 const TEAM = [
   {
-    name: "Amara Johnson",
-    role: "Lead Sisterlocks Consultant",
+    name: "Elizabeth Idowu",
+    role: "Salon Manager/Managing Director",
     image:
       "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80",
     bio: "Certified Sisterlocks consultant with 10+ years of experience specializing in fine and textured hair.",
     instagram: "#",
   },
   {
-    name: "Zuri Williams",
-    role: "Microlocs Specialist",
+    name: "Tosin Peace",
+    role: "Senior Loctician",
     image:
       "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=600&q=80",
     bio: "Expert in microloc installation and creative styling with 8 years of dedicated loc experience.",
     instagram: "#",
   },
   {
-    name: "Nia Carter",
+    name: "Tasha",
     role: "Loc Maintenance Expert",
     image:
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80",

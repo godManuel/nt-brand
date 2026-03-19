@@ -4,29 +4,29 @@ import { Star, Quote } from "lucide-react";
 
 const REVIEWS = [
   {
-    name: "Jasmine T.",
+    name: "Nana Acquah",
     rating: 5,
-    text: "Absolutely love my sisterlocks! The team is so professional and made me feel comfortable the entire time. My locs look beautiful!",
+    text: "It’s my first time ever getting locs & honestly I couldn’t be happier. She was very accommodating from my consultation (all my worries & questions answered) to my appointment. Clear communication & amazing hands! I haven’t stopped receiving compliments about my install. Would recommend!",
     date: "2 weeks ago",
   },
   {
-    name: "Keisha M.",
+    name: "Latifa Tampuri",
     rating: 5,
-    text: "Best microlocs experience ever! They took the time to explain every step and the results are stunning. Highly recommend!",
-    date: "1 month ago",
+    text: "Best service ever. Thank you NT and Tash. I will surely be back.",
+    date: "2 weeks ago",
   },
   {
-    name: "Tamara L.",
+    name: "Ceccy",
     rating: 5,
-    text: "I've been coming here for retie maintenance for over a year now. Consistent quality and great customer service every single visit.",
+    text: "I loved every minute I spent there because the care and attention given was a 💯 neat salon space warm enough to spend the whole day every service was worth the money spent.",
     date: "3 weeks ago",
   },
-  {
-    name: "Danielle R.",
-    rating: 5,
-    text: "The consultation was so thorough. They really understand different hair textures and gave me the perfect loc plan for my hair type.",
-    date: "2 months ago",
-  },
+  // {
+  //   name: "Danielle R.",
+  //   rating: 5,
+  //   text: "The consultation was so thorough. They really understand different hair textures and gave me the perfect loc plan for my hair type.",
+  //   date: "2 months ago",
+  // },
 ];
 
 export default function ReviewsSection() {
@@ -98,7 +98,7 @@ export default function ReviewsSection() {
           className="text-center mt-8"
         >
           <a
-            href="https://g.page/review"
+            href="https://www.google.com/search?kgmid=/g/11yyxllw74&hl=en-GB&q=HairbyNT&shndl=30&source=sh/x/loc/osrp/m1/2&kgs=5a0269bd94f1aad1&shem=shrtsdl&utm_source=shrtsdl,sh/x/loc/osrp/m1/2#"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent hover:text-accent/80 text-sm font-medium transition-colors"

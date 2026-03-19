@@ -59,31 +59,31 @@ export default function BookConsultation() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await base44.entities.Consultation.create(formData);
+    // await base44.entities.Consultation.create(formData);
 
-    // Send confirmation email
-    await base44.integrations.Core.SendEmail({
-      to: formData.email,
-      subject: "Your LocLuxe Consultation is Booked!",
-      body: `
-        <div style="font-family: 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
-          <h1 style="font-size: 24px; color: #3d3124; margin-bottom: 20px;">Consultation Confirmed ✨</h1>
-          <p style="color: #666; line-height: 1.6;">Hi ${formData.client_name},</p>
-          <p style="color: #666; line-height: 1.6;">Thank you for booking a consultation with LocLuxe! Here are your details:</p>
-          <div style="background: #f8f5f0; border-radius: 12px; padding: 20px; margin: 20px 0;">
-            <p style="margin: 8px 0; color: #3d3124;"><strong>Type:</strong> ${formData.consultation_type === "new_client" ? "New Client Consultation" : "Transfer Client Consultation"}</p>
-            <p style="margin: 8px 0; color: #3d3124;"><strong>Date:</strong> ${formData.preferred_date}</p>
-            <p style="margin: 8px 0; color: #3d3124;"><strong>Time:</strong> ${formData.preferred_time}</p>
-          </div>
-          <p style="color: #666; line-height: 1.6;">We'll confirm your appointment shortly. If you have any questions, feel free to reach out via WhatsApp.</p>
-          <p style="color: #666; line-height: 1.6;">Looking forward to meeting you!</p>
-          <p style="color: #b08d57; font-weight: 600;">— The LocLuxe Team</p>
-        </div>
-      `,
-    });
+    // // Send confirmation email
+    // await base44.integrations.Core.SendEmail({
+    //   to: formData.email,
+    //   subject: "Your LocLuxe Consultation is Booked!",
+    //   body: `
+    //     <div style="font-family: 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
+    //       <h1 style="font-size: 24px; color: #3d3124; margin-bottom: 20px;">Consultation Confirmed ✨</h1>
+    //       <p style="color: #666; line-height: 1.6;">Hi ${formData.client_name},</p>
+    //       <p style="color: #666; line-height: 1.6;">Thank you for booking a consultation with LocLuxe! Here are your details:</p>
+    //       <div style="background: #f8f5f0; border-radius: 12px; padding: 20px; margin: 20px 0;">
+    //         <p style="margin: 8px 0; color: #3d3124;"><strong>Type:</strong> ${formData.consultation_type === "new_client" ? "New Client Consultation" : "Transfer Client Consultation"}</p>
+    //         <p style="margin: 8px 0; color: #3d3124;"><strong>Date:</strong> ${formData.preferred_date}</p>
+    //         <p style="margin: 8px 0; color: #3d3124;"><strong>Time:</strong> ${formData.preferred_time}</p>
+    //       </div>
+    //       <p style="color: #666; line-height: 1.6;">We'll confirm your appointment shortly. If you have any questions, feel free to reach out via WhatsApp.</p>
+    //       <p style="color: #666; line-height: 1.6;">Looking forward to meeting you!</p>
+    //       <p style="color: #b08d57; font-weight: 600;">— The LocLuxe Team</p>
+    //     </div>
+    //   `,
+    // });
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
+    // setIsSubmitting(false);
+    // setIsSuccess(true);
   };
 
   const getTomorrow = () => {

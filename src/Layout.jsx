@@ -17,7 +17,7 @@ const NAV_LINKS = [
   { label: "Book", page: "BookConsultation" },
 ];
 
-const WHATSAPP_NUMBER = "1234567890";
+const WHATSAPP_NUMBER = "+447407326662";
 const WHATSAPP_MSG = encodeURIComponent(
   "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.",
 );
@@ -29,6 +29,7 @@ const ADMIN_PAGES = [
   "AdminServices",
   "AdminProducts",
   "AdminSettings",
+  "AdminLogin"
 ];
 
 export default function Layout({ children, currentPageName }) {
@@ -202,7 +203,7 @@ export default function Layout({ children, currentPageName }) {
                   <MessageCircle className="w-4 h-4" /> WhatsApp
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/hairbynt_uk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
