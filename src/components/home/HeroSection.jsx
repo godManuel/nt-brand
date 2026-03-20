@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar, MessageCircle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+
+import ConsultationTypeModal from "@/components/home/ConsultationTypeModal";
 
 const WHATSAPP_NUMBER = "+447407326662";
 const WHATSAPP_MSG = encodeURIComponent(
@@ -11,13 +13,15 @@ const WHATSAPP_MSG = encodeURIComponent(
 );
 
 export default function HeroSection() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <section className="relative min-h-[90vh] md:min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1593529334658-a243a47ad02e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Beautiful natural locs"
+          src="/saloon-cover.jpg"
+          alt="Saloon Cover"
           className="w-full h-full object-cover"
           loading="eager"
         />
@@ -52,14 +56,20 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <Link to={createPageUrl("BookConsultation")}>
-              <Button className="w-full sm:w-auto h-13 md:h-14 px-8 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full text-sm md:text-base font-semibold shadow-lg">
-                <Calendar className="w-5 h-5 mr-2" />
-                Book Consultation
-              </Button>
-            </Link>
+            <Button
+              onClick={() => setShowModal(true)}
+              className="w-full sm:w-auto h-13 md:h-14 px-8 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full text-sm md:text-base font-semibold shadow-lg"
+            >
+              <Calendar className="w-5 h-5 mr-2" />
+              Book Consultation
+            </Button>
 
-            <a
+            <ConsultationTypeModal
+              isOpen={showModal}
+              onClose={() => setShowModal(false)}
+            />
+
+            {/* <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -71,7 +81,7 @@ export default function HeroSection() {
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Chat With Us
               </Button>
-            </a>
+            </a> */}
           </div>
         </motion.div>
       </div>

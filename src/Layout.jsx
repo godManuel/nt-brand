@@ -29,7 +29,7 @@ const ADMIN_PAGES = [
   "AdminServices",
   "AdminProducts",
   "AdminSettings",
-  "AdminLogin"
+  "AdminLogin",
 ];
 
 export default function Layout({ children, currentPageName }) {
@@ -61,7 +61,7 @@ export default function Layout({ children, currentPageName }) {
               className="flex items-center gap-2"
             >
               <span className="font-serif text-2xl md:text-3xl font-semibold text-primary tracking-tight">
-                NT Brand
+                NT BRAND LTD
               </span>
             </Link>
 
@@ -103,7 +103,7 @@ export default function Layout({ children, currentPageName }) {
                   <div className="flex flex-col h-full">
                     <div className="p-6 border-b border-border">
                       <span className="font-serif text-2xl font-semibold text-primary">
-                        NT Brand
+                        NT BRAND LTD
                       </span>
                     </div>
                     <nav className="flex flex-col p-6 gap-1">
@@ -166,7 +166,7 @@ export default function Layout({ children, currentPageName }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div>
               <span className="font-serif text-3xl font-semibold">
-                NT Brand
+                NT BRAND LTD
               </span>
               <p className="mt-4 text-primary-foreground/70 text-sm leading-relaxed">
                 Professional Microlocs & Sisterlocks specialists dedicated to
@@ -215,7 +215,7 @@ export default function Layout({ children, currentPageName }) {
           </div>
           <div className="border-t border-primary-foreground/10 mt-10 pt-8 text-center">
             <p className="text-xs text-primary-foreground/50">
-              © {new Date().getFullYear()} NT Brand. All rights reserved.
+              © {new Date().getFullYear()} NT Brand Ltd. All rights reserved.
             </p>
           </div>
         </div>

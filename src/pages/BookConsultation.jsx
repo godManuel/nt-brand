@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSearchParams, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -25,7 +26,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 
-const WHATSAPP_NUMBER = "1234567890";
+const WHATSAPP_NUMBER = "+447407326662";
 const TIME_SLOTS = [
   "9:00 AM",
   "10:00 AM",
@@ -39,11 +40,14 @@ const TIME_SLOTS = [
 ];
 
 export default function BookConsultation() {
+  const [searchParams] = useSearchParams();
+  const consultationType = searchParams.get("type");
+
   const [formData, setFormData] = useState({
     client_name: "",
     email: "",
     phone: "",
-    consultation_type: "",
+    consultation_type: consultationType || "",
     preferred_date: "",
     preferred_time: "",
     hair_type: "",
@@ -58,7 +62,7 @@ export default function BookConsultation() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    // setIsSubmitting(true);
     // await base44.entities.Consultation.create(formData);
 
     // // Send confirmation email
@@ -209,6 +213,8 @@ export default function BookConsultation() {
                     ))}
                   </div>
                 </div>
+
+                <div className="border-b"></div>
 
                 {/* Personal Info */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

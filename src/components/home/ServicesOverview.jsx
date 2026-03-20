@@ -84,7 +84,10 @@ export default function ServicesOverview() {
                   <service.icon className="w-5 h-5 text-accent" />
                 </div>
                 <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground">
-                  {service.title}
+                  <Link to={createPageUrl("BookConsultation")}>
+                    {" "}
+                    {service.title}
+                  </Link>
                 </h3>
                 <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
                   {service.description}
