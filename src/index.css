@@ -11,14 +11,18 @@
   --card-foreground: 30 10% 10%;
   --popover: 30 20% 98%;
   --popover-foreground: 30 10% 10%;
-  --primary: 30 30% 22%;
-  --primary-foreground: 40 30% 95%;
-  --secondary: 35 25% 92%;
-  --secondary-foreground: 30 15% 25%;
+  /* Primary (Purple from logo) */
+  --primary: 285 45% 35%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary (Soft gold background tone) */
+  --secondary: 45 90% 92%;
+  --secondary-foreground: 285 40% 25%;
+
   --muted: 35 15% 93%;
-  --muted-foreground: 30 8% 46%;
-  --accent: 38 50% 55%;
-  --accent-foreground: 30 20% 98%;
+  --muted-foreground: 280 15% 40%;
+  --accent: 45 95% 52%;
+  --accent-foreground: 285 40% 20%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
   --border: 30 15% 88%;
@@ -47,14 +51,18 @@
   --card-foreground: 30 15% 92%;
   --popover: 30 10% 8%;
   --popover-foreground: 30 15% 92%;
-  --primary: 38 50% 55%;
-  --primary-foreground: 30 10% 8%;
-  --secondary: 30 10% 15%;
-  --secondary-foreground: 30 15% 85%;
+  --primary: 45 95% 52%;
+  --primary-foreground: 280 20% 10%;
+
+  /* Secondary (Muted purple tone) */
+  --secondary: 280 20% 18%;
+  --secondary-foreground: 0 0% 90%;
   --muted: 30 10% 15%;
-  --muted-foreground: 30 10% 55%;
   --accent: 38 50% 55%;
-  --accent-foreground: 30 10% 8%;
+  --accent: 45 95% 52%;
+  --accent-foreground: 280 20% 10%;
+
+  --muted-foreground: 280 10% 65%;
   --destructive: 0 62% 50%;
   --destructive-foreground: 0 0% 98%;
   --border: 30 10% 18%;

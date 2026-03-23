@@ -44,15 +44,21 @@ export default function HeroSection() {
             Professional Loc Specialists
           </motion.span>
 
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.1] mb-6">
-            Your Journey to{" "}
-            <span className="italic text-accent">Beautiful</span> Locs Starts
-            Here
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.1] mb-2">
+            HairbyNT is a London-based natural{" "}
+            <span className="italic text-accent"> hair brand</span>
           </h1>
 
-          <p className="text-white/80 text-base md:text-lg leading-relaxed mb-8 md:mb-10 max-w-lg">
-            Expert Microlocs & Sisterlocks installation, maintenance, and
-            styling. Crafting stunning natural locs tailored uniquely to you.
+          <p className="text-white/80 text-base md:text-lg leading-relaxed mb-4 md:mb-5 max-w-lg">
+            specialising in premium Microlocs & Sisterlocks™️ installation,
+            retightening, repairs, and long-term loc care for Afro-textured
+            hair.
+          </p>
+
+          <p className="text-white/80 text-base md:text-lg leading-relaxed mb-4 md:mb-5 max-w-lg">
+            Our mission is to empower Black women to reclaim the beauty of their
+            natural hair through intentional care, education, and expert
+            craftsmanship in a safe, welcoming space.{" "}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">

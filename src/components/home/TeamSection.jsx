@@ -13,16 +13,14 @@ const TEAM = [
   {
     name: "Tosin Peace",
     role: "Senior Loctician",
-    image:
-      "https://plus.unsplash.com/premium_vector-1728574629243-0e8ac88442f1?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/female-avatar-1.jpg",
     bio: "Expert in microloc installation and creative styling with 8 years of dedicated loc experience.",
     instagram: "#",
   },
   {
     name: "Tasha",
     role: "Loc Maintenance Expert",
-    image:
-      "https://plus.unsplash.com/premium_vector-1728572090388-ac31f1669c9c?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/female-avatar-2.jpg",
     bio: "Passionate about loc health and maintenance, ensuring every client's locs thrive beautifully.",
     instagram: "#",
   },

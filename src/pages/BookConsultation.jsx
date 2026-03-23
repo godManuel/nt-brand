@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,29 +19,47 @@ import {
   Loader2,
   Phone,
   Mail,
+  Tag,
   User,
   Clock,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
+
+import { useToast } from "@/components/ui/use-toast";
+
+import InlineLoadingOverlay from "@/components/BookingOverlay";
+import BookingSuccessModal from "@/components/modals/BookingSuccess";
+
+import { getAvailableSlots, createBooking } from "@/services/bookings";
+import { createPageUrl, formatDateTime, formatTimeNative } from "@/utils";
 
 const WHATSAPP_NUMBER = "+447407326662";
-const TIME_SLOTS = [
-  "9:00 AM",
-  "10:00 AM",
-  "11:00 AM",
-  "12:00 PM",
-  "1:00 PM",
-  "2:00 PM",
-  "3:00 PM",
-  "4:00 PM",
-  "5:00 PM",
+
+const appointmentTypes = [
+  {
+    service_name: "Consultation",
+    apptID: "90777075",
+  },
+  {
+    service_name: "Microlocs Installation",
+    apptID: "90909242",
+  },
+  {
+    service_name: "Sisterlocs Installation",
+    apptID: "90909372",
+  },
+  {
+    service_name: "Retie Service",
+    apptID: "90909458",
+  },
 ];
 
 export default function BookConsultation() {
   const [searchParams] = useSearchParams();
   const consultationType = searchParams.get("type");
+  const [timeSlots, setTimeSlots] = useState([]);
+  const { toast } = useToast();
 
   const [formData, setFormData] = useState({
     client_name: "",
@@ -51,10 +69,52 @@ export default function BookConsultation() {
     preferred_date: "",
     preferred_time: "",
     hair_type: "",
+    service_type: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loadingSlots, setLoadingSlots] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  const fetchAvailableSlots = async (appointmentID, date) => {
+    setLoadingSlots(true);
+
+    setTimeSlots([]); // Clear previous slots
+    setFormData((prev) => ({ ...prev, preferred_time: "" })); // Reset time selection
+
+    try {
+      const res = await getAvailableSlots(appointmentID, date);
+
+      if (res.ok) {
+        setTimeSlots(res.data.data);
+      }
+
+      if (!res.ok) {
+        // const { dismiss } = toast({
+        //   title: "Error",
+        //   description: "Something went wrong",
+        //   variant: "destructive",
+        // });
+      }
+    } catch (error) {
+      console.error("Error fetching slots:", error);
+      setTimeSlots([]);
+      toast({
+        title: "Something went wrong",
+        description: "An error occured",
+        variant: "destructive",
+      });
+    } finally {
+      setLoadingSlots(false);
+    }
+  };
+
+  useEffect(() => {
+    if (formData.preferred_date) {
+      fetchAvailableSlots(formData.service_type, formData.preferred_date);
+    }
+  }, [formData.preferred_date, formData.service_type]);
 
   const handleChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -62,32 +122,44 @@ export default function BookConsultation() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // setIsSubmitting(true);
-    // await base44.entities.Consultation.create(formData);
 
-    // // Send confirmation email
-    // await base44.integrations.Core.SendEmail({
-    //   to: formData.email,
-    //   subject: "Your LocLuxe Consultation is Booked!",
-    //   body: `
-    //     <div style="font-family: 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
-    //       <h1 style="font-size: 24px; color: #3d3124; margin-bottom: 20px;">Consultation Confirmed ✨</h1>
-    //       <p style="color: #666; line-height: 1.6;">Hi ${formData.client_name},</p>
-    //       <p style="color: #666; line-height: 1.6;">Thank you for booking a consultation with LocLuxe! Here are your details:</p>
-    //       <div style="background: #f8f5f0; border-radius: 12px; padding: 20px; margin: 20px 0;">
-    //         <p style="margin: 8px 0; color: #3d3124;"><strong>Type:</strong> ${formData.consultation_type === "new_client" ? "New Client Consultation" : "Transfer Client Consultation"}</p>
-    //         <p style="margin: 8px 0; color: #3d3124;"><strong>Date:</strong> ${formData.preferred_date}</p>
-    //         <p style="margin: 8px 0; color: #3d3124;"><strong>Time:</strong> ${formData.preferred_time}</p>
-    //       </div>
-    //       <p style="color: #666; line-height: 1.6;">We'll confirm your appointment shortly. If you have any questions, feel free to reach out via WhatsApp.</p>
-    //       <p style="color: #666; line-height: 1.6;">Looking forward to meeting you!</p>
-    //       <p style="color: #b08d57; font-weight: 600;">— The LocLuxe Team</p>
-    //     </div>
-    //   `,
-    // });
+    setIsSubmitting(true);
 
-    // setIsSubmitting(false);
-    // setIsSuccess(true);
+    const [surname, firstname] = formData.client_name.split(" ");
+
+    const bookingData = {
+      appointmentTypeID: formData.service_type,
+      date: formData.preferred_date,
+      time: formatTimeNative(formData.preferred_time).split(" ")[0],
+      firstName: firstname,
+      lastName: surname,
+      email: formData.email,
+      phone: formData.phone,
+      notes: formData.message,
+    };
+
+    try {
+      const res = await createBooking(bookingData);
+
+      if (res.ok) {
+        setShowSuccessModal(true);
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+      }
+
+      if (!res.ok) {
+        if (res.data.error) {
+          alert(res.data.error.message);
+        }
+        console.log(res);
+      }
+    } catch (error) {
+      alert("Something went wrong");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const getTomorrow = () => {
@@ -124,6 +196,8 @@ export default function BookConsultation() {
           </motion.div>
         </div>
       </section>
+
+      <InlineLoadingOverlay isLoading={loadingSlots} />
 
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
         <AnimatePresence mode="wait">
@@ -214,8 +288,6 @@ export default function BookConsultation() {
                   </div>
                 </div>
 
-                <div className="border-b"></div>
-
                 {/* Personal Info */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -223,7 +295,7 @@ export default function BookConsultation() {
                       htmlFor="name"
                       className="text-sm font-medium mb-2 block"
                     >
-                      Full Name *
+                      Full Name (Surname first) *
                     </Label>
                     <div className="relative">
                       <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -233,7 +305,7 @@ export default function BookConsultation() {
                         placeholder="Your full name"
                         value={formData.client_name}
                         onChange={(e) =>
-                          handleChange("client_name", e.target.value)
+                          handleChange("client_name", e.target.value.trim())
                         }
                         className="h-12 pl-10 rounded-xl"
                       />
@@ -282,68 +354,32 @@ export default function BookConsultation() {
                       />
                     </div>
                   </div>
-                  <div>
-                    <Label
-                      htmlFor="hair"
-                      className="text-sm font-medium mb-2 block"
-                    >
-                      Hair Type / Texture
-                    </Label>
-                    <Input
-                      id="hair"
-                      placeholder="e.g., 4C, fine, thick"
-                      value={formData.hair_type}
-                      onChange={(e) =>
-                        handleChange("hair_type", e.target.value)
-                      }
-                      className="h-12 rounded-xl"
-                    />
-                  </div>
-                </div>
 
-                {/* Date & Time */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <Label
-                      htmlFor="date"
-                      className="text-sm font-medium mb-2 block"
-                    >
-                      Preferred Date *
-                    </Label>
-                    <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                      <Input
-                        id="date"
-                        type="date"
-                        required
-                        min={getTomorrow()}
-                        value={formData.preferred_date}
-                        onChange={(e) =>
-                          handleChange("preferred_date", e.target.value)
-                        }
-                        className="h-12 pl-10 rounded-xl"
-                      />
-                    </div>
-                  </div>
                   <div>
                     <Label className="text-sm font-medium mb-2 block">
-                      Preferred Time *
+                      Select Service *
                     </Label>
                     <Select
-                      value={formData.preferred_time}
-                      onValueChange={(v) => handleChange("preferred_time", v)}
+                      value={formData.service_type}
+                      onValueChange={(v) => {
+                        handleChange("service_type", v);
+                        setFormData((prev) => ({
+                          ...prev,
+                          preferred_date: "",
+                        }));
+                      }}
                       required
                     >
                       <SelectTrigger className="h-12 rounded-xl">
                         <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-muted-foreground" />
-                          <SelectValue placeholder="Select time" />
+                          <Tag className="w-4 h-4 text-muted-foreground" />
+                          <SelectValue placeholder="Select service" />
                         </div>
                       </SelectTrigger>
                       <SelectContent>
-                        {TIME_SLOTS.map((slot) => (
-                          <SelectItem key={slot} value={slot}>
-                            {slot}
+                        {appointmentTypes.map((service, i) => (
+                          <SelectItem key={i} value={service.apptID}>
+                            {service.service_name}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -351,8 +387,87 @@ export default function BookConsultation() {
                   </div>
                 </div>
 
+                {/* Date & Time */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {formData.service_type && (
+                    <div>
+                      <Label
+                        htmlFor="date"
+                        className="text-sm font-medium mb-2 block"
+                      >
+                        Preferred Date *
+                      </Label>
+                      <div className="relative">
+                        <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+
+                        <Input
+                          id="date"
+                          type="date"
+                          required
+                          min={getTomorrow()}
+                          value={formData.preferred_date}
+                          onChange={(e) => {
+                            handleChange("preferred_date", e.target.value);
+                            setFormData((prev) => ({
+                              ...prev,
+                              preferred_time: "",
+                            }));
+                          }}
+                          className="h-12 pl-10 rounded-xl w-full"
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {formData.preferred_date && (
+                    <div>
+                      <Label className="text-sm font-medium mb-2 block">
+                        Preferred Time *
+                      </Label>
+                      {timeSlots && timeSlots.length > 0 ? (
+                        <Select
+                          value={formData.preferred_time}
+                          onValueChange={(v) =>
+                            handleChange("preferred_time", v)
+                          }
+                          required
+                        >
+                          <SelectTrigger className="h-12 rounded-xl">
+                            <div className="flex items-center gap-2">
+                              <Clock className="w-4 h-4 text-muted-foreground" />
+                              <SelectValue placeholder="Select time" />
+                            </div>
+                          </SelectTrigger>
+                          <SelectContent>
+                            {timeSlots.map((slot, i) => (
+                              <SelectItem key={i} value={slot.time}>
+                                {formatTimeNative(slot.time)}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      ) : (
+                        <div className="rounded-xl border border-border bg-background">
+                          <div className="text-center py-6">
+                            <Clock className="w-8 h-8 text-muted-foreground/50 mx-auto mb-2" />
+                            <p className="text-sm text-muted-foreground">
+                              No available time slots for this date
+                            </p>
+                            <button
+                              onClick={() => handleChange("preferred_date", "")}
+                              className="mt-3 text-sm text-accent hover:underline"
+                            >
+                              Choose another date
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+
                 {/* Message */}
-                <div>
+                {/* <div>
                   <Label
                     htmlFor="message"
                     className="text-sm font-medium mb-2 block"
@@ -366,7 +481,7 @@ export default function BookConsultation() {
                     onChange={(e) => handleChange("message", e.target.value)}
                     className="min-h-[100px] rounded-xl resize-none"
                   />
-                </div>
+                </div> */}
 
                 <Button
                   type="submit"
@@ -395,6 +510,12 @@ export default function BookConsultation() {
                   appointment reminders.
                 </p>
               </form>
+
+              <BookingSuccessModal
+                isOpen={showSuccessModal}
+                onClose={() => setShowSuccessModal(false)}
+                message="Your consultation has been successfully scheduled"
+              />
             </motion.div>
           )}
         </AnimatePresence>

@@ -58,11 +58,30 @@ export default function Layout({ children, currentPageName }) {
           <div className="flex items-center justify-between h-16 md:h-20">
             <Link
               to={createPageUrl("Home")}
-              className="flex items-center gap-2"
+              className="flex items-center gap-3 group"
             >
-              <span className="font-serif text-2xl md:text-3xl font-semibold text-primary tracking-tight">
-                NT BRAND LTD
-              </span>
+              {/* Logo Image */}
+              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
+                <img
+                  src="/logo.png"
+                  alt="NT BRAND LTD Logo"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "/fallback-logo.png"; // Optional fallback
+                  }}
+                />
+              </div>
+
+              {/* Brand Name */}
+              <div className="flex flex-col">
+                <span className="font-serif text-xl md:text-2xl font-semibold text-primary tracking-tight leading-tight">
+                  NT BRAND LTD
+                </span>
+                <span className="text-[10px] md:text-xs text-muted-foreground tracking-wide hidden sm:block">
+                  Microlocs & Sisterlocks Specialists
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Nav */}
@@ -102,9 +121,18 @@ export default function Layout({ children, currentPageName }) {
                 >
                   <div className="flex flex-col h-full">
                     <div className="p-6 border-b border-border">
-                      <span className="font-serif text-2xl font-semibold text-primary">
-                        NT BRAND LTD
-                      </span>
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full overflow-hidden bg-primary/10">
+                          <img
+                            src="/logo.png"
+                            alt="NT BRAND LTD Logo"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="font-serif text-xl font-semibold text-primary">
+                          NT BRAND LTD
+                        </span>
+                      </div>
                     </div>
                     <nav className="flex flex-col p-6 gap-1">
                       {NAV_LINKS.map((link) => (
@@ -165,12 +193,22 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div>
-              <span className="font-serif text-3xl font-semibold">
-                NT BRAND LTD
-              </span>
-              <p className="mt-4 text-primary-foreground/70 text-sm leading-relaxed">
-                Professional Microlocs & Sisterlocks specialists dedicated to
-                crafting beautiful, natural locs tailored to your unique style.
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10">
+                  <img
+                    src="/logo.png"
+                    alt="NT BRAND LTD Logo"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span className="font-serif text-3xl font-semibold">
+                  NT BRAND LTD
+                </span>
+              </div>
+              <p className="text-primary-foreground/70 text-sm leading-relaxed">
+                HairbyNT is a London-based natural hair brand specialising in
+                premium Microlocs & Sisterlocks™️ installation, retightening,
+                repairs, and long-term loc care for Afro-textured hair.
               </p>
             </div>
             <div>
