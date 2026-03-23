@@ -41,7 +41,7 @@ export default function HeroSection() {
             transition={{ delay: 0.3 }}
             className="inline-block text-accent text-xs md:text-sm font-semibold uppercase tracking-[0.2em] mb-4 md:mb-6"
           >
-            Professional Loc Specialists
+            Microlocs & Sisterlocs Specialists
           </motion.span>
 
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.1] mb-2">
@@ -53,12 +53,6 @@ export default function HeroSection() {
             specialising in premium Microlocs & Sisterlocks™️ installation,
             retightening, repairs, and long-term loc care for Afro-textured
             hair.
-          </p>
-
-          <p className="text-white/80 text-base md:text-lg leading-relaxed mb-4 md:mb-5 max-w-lg">
-            Our mission is to empower Black women to reclaim the beauty of their
-            natural hair through intentional care, education, and expert
-            craftsmanship in a safe, welcoming space.{" "}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
