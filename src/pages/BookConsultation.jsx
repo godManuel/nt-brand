@@ -110,11 +110,11 @@ export default function BookConsultation() {
     }
   };
 
-  useEffect(() => {
-    if (formData.preferred_date) {
-      fetchAvailableSlots(formData.service_type, formData.preferred_date);
-    }
-  }, [formData.preferred_date, formData.service_type]);
+  // useEffect(() => {
+  //   if (formData.preferred_date) {
+  //     fetchAvailableSlots(formData.service_type, formData.preferred_date);
+  //   }
+  // }, [formData.preferred_date, formData.service_type]);
 
   const handleChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -123,43 +123,43 @@ export default function BookConsultation() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setIsSubmitting(true);
+    // setIsSubmitting(true);
 
-    const [surname, firstname] = formData.client_name.split(" ");
+    // const [surname, firstname] = formData.client_name.split(" ");
 
-    const bookingData = {
-      appointmentTypeID: formData.service_type,
-      date: formData.preferred_date,
-      time: formatTimeNative(formData.preferred_time).split(" ")[0],
-      firstName: firstname,
-      lastName: surname,
-      email: formData.email,
-      phone: formData.phone,
-      notes: formData.message,
-    };
+    // const bookingData = {
+    //   appointmentTypeID: formData.service_type,
+    //   date: formData.preferred_date,
+    //   time: formatTimeNative(formData.preferred_time).split(" ")[0],
+    //   firstName: firstname,
+    //   lastName: surname,
+    //   email: formData.email,
+    //   phone: formData.phone,
+    //   notes: formData.message,
+    // };
 
-    try {
-      const res = await createBooking(bookingData);
+    // try {
+    //   const res = await createBooking(bookingData);
 
-      if (res.ok) {
-        setShowSuccessModal(true);
+    //   if (res.ok) {
+    //     setShowSuccessModal(true);
 
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
-      }
+    //     setTimeout(() => {
+    //       window.location.reload();
+    //     }, 3000);
+    //   }
 
-      if (!res.ok) {
-        if (res.data.error) {
-          alert(res.data.error.message);
-        }
-        console.log(res);
-      }
-    } catch (error) {
-      alert("Something went wrong");
-    } finally {
-      setIsSubmitting(false);
-    }
+    //   if (!res.ok) {
+    //     if (res.data.error) {
+    //       alert(res.data.error.message);
+    //     }
+    //     console.log(res);
+    //   }
+    // } catch (error) {
+    //   alert("Something went wrong");
+    // } finally {
+    //   setIsSubmitting(false);
+    // }
   };
 
   const getTomorrow = () => {
@@ -389,64 +389,62 @@ export default function BookConsultation() {
 
                 {/* Date & Time */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {formData.service_type && (
-                    <div>
-                      <Label
-                        htmlFor="date"
-                        className="text-sm font-medium mb-2 block"
-                      >
-                        Preferred Date *
-                      </Label>
-                      <div className="relative">
-                        <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  {/* {formData.service_type && ( */}
+                  <div>
+                    <Label
+                      htmlFor="date"
+                      className="text-sm font-medium mb-2 block"
+                    >
+                      Preferred Date *
+                    </Label>
+                    <div className="relative">
+                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
 
-                        <Input
-                          id="date"
-                          type="date"
-                          required
-                          min={getTomorrow()}
-                          value={formData.preferred_date}
-                          onChange={(e) => {
-                            handleChange("preferred_date", e.target.value);
-                            setFormData((prev) => ({
-                              ...prev,
-                              preferred_time: "",
-                            }));
-                          }}
-                          className="h-12 pl-10 rounded-xl w-full"
-                        />
-                      </div>
+                      <Input
+                        id="date"
+                        type="date"
+                        required
+                        min={getTomorrow()}
+                        value={formData.preferred_date}
+                        onChange={(e) => {
+                          handleChange("preferred_date", e.target.value);
+                          setFormData((prev) => ({
+                            ...prev,
+                            preferred_time: "",
+                          }));
+                        }}
+                        className="h-12 pl-10 rounded-xl"
+                      />
                     </div>
-                  )}
+                  </div>
+                  {/* )} */}
 
-                  {formData.preferred_date && (
-                    <div>
-                      <Label className="text-sm font-medium mb-2 block">
-                        Preferred Time *
-                      </Label>
-                      {timeSlots && timeSlots.length > 0 ? (
-                        <Select
-                          value={formData.preferred_time}
-                          onValueChange={(v) =>
-                            handleChange("preferred_time", v)
-                          }
-                          required
-                        >
-                          <SelectTrigger className="h-12 rounded-xl">
-                            <div className="flex items-center gap-2">
-                              <Clock className="w-4 h-4 text-muted-foreground" />
-                              <SelectValue placeholder="Select time" />
-                            </div>
-                          </SelectTrigger>
-                          <SelectContent>
-                            {timeSlots.map((slot, i) => (
-                              <SelectItem key={i} value={slot.time}>
-                                {formatTimeNative(slot.time)}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      ) : (
+                  {/* {formData.preferred_date && ( */}
+                  <div>
+                    <Label className="text-sm font-medium mb-2 block">
+                      Preferred Time *
+                    </Label>
+                    {/* {timeSlots && timeSlots.length > 0 ? ( */}
+                    <Select
+                      value={formData.preferred_time}
+                      onValueChange={(v) => handleChange("preferred_time", v)}
+                      required
+                    >
+                      <SelectTrigger className="h-12 rounded-xl">
+                        <div className="flex items-center gap-2">
+                          <Clock className="w-4 h-4 text-muted-foreground" />
+                          <SelectValue placeholder="Select time" />
+                        </div>
+                      </SelectTrigger>
+                      <SelectContent>
+                        {timeSlots.map((slot, i) => (
+                          <SelectItem key={i} value={slot.time}>
+                            {formatTimeNative(slot.time)}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {/* ) : (
                         <div className="rounded-xl border border-border bg-background">
                           <div className="text-center py-6">
                             <Clock className="w-8 h-8 text-muted-foreground/50 mx-auto mb-2" />
@@ -461,9 +459,9 @@ export default function BookConsultation() {
                             </button>
                           </div>
                         </div>
-                      )}
-                    </div>
-                  )}
+                      )} */}
+                  </div>
+                  {/* )} */}
                 </div>
 
                 {/* Message */}

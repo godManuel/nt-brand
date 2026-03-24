@@ -49,7 +49,9 @@
  */
 import Home from "./pages/Home";
 import Services from "./pages/Services";
-import BookConsultation from "./pages/BookConsultation";
+import About from "./pages/AboutUs";
+import Policy from "./pages/Policy";
+
 // import AdminDashboard from "./pages/AdminDashboard";
 // import AdminBookings from "./pages/AdminBookings";
 // import AdminTeam from "./pages/AdminTeam";
@@ -62,7 +64,8 @@ import __Layout from "./Layout.jsx";
 export const PAGES = {
   Home: Home,
   Services: Services,
-  BookConsultation: BookConsultation,
+  About: About,
+  Policy: Policy,
   // AdminDashboard: AdminDashboard,
   // AdminBookings: AdminBookings,
   // AdminTeam: AdminTeam,

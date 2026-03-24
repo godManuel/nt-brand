@@ -5,16 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Calendar, MessageCircle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-import ConsultationTypeModal from "@/components/home/ConsultationTypeModal";
-
-const WHATSAPP_NUMBER = "+447407326662";
-const WHATSAPP_MSG = encodeURIComponent(
-  "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.",
-);
+// const WHATSAPP_NUMBER = "+447407326662";
+// const WHATSAPP_MSG = encodeURIComponent(
+//   "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.",
+// );
 
 export default function HeroSection() {
-  const [showModal, setShowModal] = useState(false);
-
   return (
     <section className="relative min-h-[90vh] md:min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
@@ -57,17 +53,12 @@ export default function HeroSection() {
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Button
-              onClick={() => setShowModal(true)}
+              onClick={() => createPageUrl("BookConsultation")}
               className="w-full sm:w-auto h-13 md:h-14 px-8 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full text-sm md:text-base font-semibold shadow-lg"
             >
               <Calendar className="w-5 h-5 mr-2" />
               Book Consultation
             </Button>
-
-            <ConsultationTypeModal
-              isOpen={showModal}
-              onClose={() => setShowModal(false)}
-            />
 
             {/* <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`}

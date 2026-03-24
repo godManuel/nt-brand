@@ -13,8 +13,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { label: "Home", page: "Home" },
+  { label: "About", page: "About" },
   { label: "Services", page: "Services" },
-  { label: "Book", page: "BookConsultation" },
+  { label: "Book", page: "https://ntbranduk.as.me", external: true },
+  { label: "Policy", page: "Policy" },
 ];
 
 const WHATSAPP_NUMBER = "+447407326662";
@@ -89,12 +91,13 @@ export default function Layout({ children, currentPageName }) {
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.page}
-                  to={createPageUrl(link.page)}
+                  to={link.external ? link.page : createPageUrl(link.page)}
                   className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-accent ${
                     currentPageName === link.page
                       ? "text-accent"
                       : "text-foreground/70"
                   }`}
+                  target={link.external ? "_blank" : undefined}
                 >
                   {link.label}
                 </Link>
