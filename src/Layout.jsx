@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Menu, X, Phone, Calendar, MessageCircle } from "lucide-react";
+import { Menu, X, Phone, Calendar, MessageCircle, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -111,7 +111,15 @@ export default function Layout({ children, currentPageName }) {
             </nav>
 
             {/* Mobile Nav */}
-            <div className="md:hidden">
+            <div className="md:hidden flex items-center gap-2">
+              {/* Shopping Bag Icon */}
+              <Link to={"#"} className="mr-1">
+                <Button variant="ghost" size="icon" className="h-11 w-11 relative">
+                  <ShoppingBag className="h-5 w-5" />
+                  {/* <span className="absolute top-1 right-1 w-2 h-2 bg-accent rounded-full"></span> */}
+                </Button>
+              </Link>
+              
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon" className="h-11 w-11">
@@ -141,17 +149,34 @@ export default function Layout({ children, currentPageName }) {
                       {NAV_LINKS.map((link) => (
                         <SheetClose key={link.page} asChild>
                           <Link
-                            to={createPageUrl(link.page)}
+                            to={link.external ? link.page : createPageUrl(link.page)}
                             className={`py-3 px-4 rounded-lg text-base font-medium transition-colors ${
                               currentPageName === link.page
                                 ? "bg-secondary text-accent"
                                 : "text-foreground/70 hover:bg-secondary"
                             }`}
+                            target={link.external ? "_blank" : undefined}
                           >
                             {link.label}
                           </Link>
                         </SheetClose>
                       ))}
+                      {/* Products link in mobile nav */}
+                      <SheetClose asChild>
+                        <Link
+                          to={createPageUrl("Products")}
+                          className={`py-3 px-4 rounded-lg text-base font-medium transition-colors ${
+                            currentPageName === "Products"
+                              ? "bg-secondary text-accent"
+                              : "text-foreground/70 hover:bg-secondary"
+                          }`}
+                        >
+                          <div className="flex items-center gap-2">
+                            <ShoppingBag className="w-4 h-4" />
+                            Products
+                          </div>
+                        </Link>
+                      </SheetClose>
                     </nav>
                     <div className="mt-auto p-6 space-y-3">
                       <SheetClose asChild>
@@ -222,12 +247,19 @@ export default function Layout({ children, currentPageName }) {
                 {NAV_LINKS.map((link) => (
                   <Link
                     key={link.page}
-                    to={createPageUrl(link.page)}
+                    to={link.external ? link.page : createPageUrl(link.page)}
                     className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    target={link.external ? "_blank" : undefined}
                   >
                     {link.label}
                   </Link>
                 ))}
+                <Link
+                  to={createPageUrl("Products")}
+                  className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                >
+                  Products
+                </Link>
               </div>
             </div>
             <div>

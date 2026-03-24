@@ -84,7 +84,7 @@ export default function ServicesOverview() {
                   <service.icon className="w-5 h-5 text-accent" />
                 </div>
                 <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground">
-                  <Link to={createPageUrl("BookConsultation")}>
+                  <Link to="https://ntbranduk.as.me" target="_blank">
                     {" "}
                     {service.title}
                   </Link>

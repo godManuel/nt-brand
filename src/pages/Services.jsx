@@ -52,5 +52,6 @@ export default function Services() {
       <ProductsSection />
       <TrainingSection />
     </div>
+    
   );
 }
