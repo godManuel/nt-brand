@@ -3,45 +3,63 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, MessageCircle, ShoppingBag } from "lucide-react";
 import { motion } from "framer-motion";
 
-const WHATSAPP_NUMBER = "1234567890";
+const WHATSAPP_NUMBER = "+447407326662";
 
 const PRODUCTS = [
   {
-    name: "Loc Moisturizing Spray",
+    name: "Extensions",
     description:
-      "Lightweight daily moisturizer that keeps locs hydrated without buildup.",
+      "Premium Brazilian Kinky Human Hair Extensions available in 3B to 4C textures, including Burmese curls. Perfect for adding length and volume with a seamless blend.",
     image:
-      "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&q=80",
-    amazonLink: "https://amazon.com",
+      "https://images.pexels.com/photos/3807737/pexels-photo-3807737.jpeg?auto=compress&cs=tinysrgb&w=800",
+    amazonLink: "#",
     whatsappMsg:
-      "Hi! I'm interested in the Loc Moisturizing Spray. Is it available?",
+      "Hi! I'm interested in your Extensions. Do you have them in stock?",
   },
   {
-    name: "Scalp Oil Treatment",
-    description: "Nourishing oil blend for healthy scalp and strong loc roots.",
+    name: "Favorite Loc Essentials",
+    description:
+      "Essential loc care products including moisturizing spray, loc gel, and edge control for daily maintenance and styling.",
     image:
-      "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&q=80",
-    amazonLink: "https://amazon.com",
+      "https://images.pexels.com/photos/3998400/pexels-photo-3998400.jpeg?auto=compress&cs=tinysrgb&w=800",
+    amazonLink: "#",
     whatsappMsg:
-      "Hi! I'm interested in the Scalp Oil Treatment. Can you tell me more?",
+      "Hi! I'm interested in your Favorite Loc Essentials. Can you tell me more?",
   },
   {
-    name: "Clarifying Shampoo",
+    name: "ACV Rinse Clarifying Shampoo",
     description:
-      "Gentle yet effective cleanser formulated specifically for locs.",
-    image:
-      "https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?w=400&q=80",
-    amazonLink: "https://amazon.com",
-    whatsappMsg: "Hi! I'm interested in the Clarifying Shampoo for locs.",
+      "Apple Cider Vinegar Clarifying Rinse is a unique deep cleanser that is perfect for removing weekly product build-up without stripping hair of its moisture.",
+    image: "/products/acv.jpg",
+    amazonLink: "https://amzn.to/4t1oc6e",
+    whatsappMsg: "Hi! I'm interested in the ACV Rinse. Is it available?",
   },
   {
-    name: "Loc Gel & Edge Control",
+    name: "Suave Clarifying Shampoo",
     description:
-      "Strong hold gel for styling and edge control without flaking.",
+      "Suave Essentials Daily Clarifying Shampoo gently cleanses hair, provides 2X more moisture when used with Daily Clarifying Conditioner and brings out hair's natural beauty and shine",
+    image: "/products/suave-shampoo.jpg",
+    amazonLink: "https://amzn.to/3NpCmyN",
+    whatsappMsg: "Hi! I'm interested in the Suave Shampoo.",
+  },
+  {
+    name: "Bonnets",
+    description:
+      "Satin lined bonnets and extra large loc bonnets designed to protect your locs while sleeping, retain moisture, and prevent frizz.",
     image:
-      "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&q=80",
-    amazonLink: "https://amazon.com",
-    whatsappMsg: "Hi! I'm interested in the Loc Gel & Edge Control.",
+      "https://images.pexels.com/photos/4025062/pexels-photo-4025062.jpeg?auto=compress&cs=tinysrgb&w=800",
+    amazonLink: "#",
+    whatsappMsg:
+      "Hi! I'm interested in the Bonnets. Do you have them in stock?",
+  },
+  {
+    name: "Hair Care Products",
+    description:
+      "Complete hair care collection including clarifying shampoo and loc repair treatment for healthy, beautiful locs.",
+    image:
+      "https://images.pexels.com/photos/3998407/pexels-photo-3998407.jpeg?auto=compress&cs=tinysrgb&w=800",
+    amazonLink: "#",
+    whatsappMsg: "Hi! I'm interested in your Hair Care Products.",
   },
 ];
 

@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Menu, X, Phone, Calendar, MessageCircle, ShoppingBag } from "lucide-react";
+import {
+  Menu,
+  X,
+  Phone,
+  Calendar,
+  MessageCircle,
+  ShoppingBag,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -102,7 +109,7 @@ export default function Layout({ children, currentPageName }) {
                   {link.label}
                 </Link>
               ))}
-              <Link to={createPageUrl("BookConsultation")}>
+              <Link to="https://ntbranduk.as.me" target="_blank">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground h-11 px-6 rounded-full text-sm font-medium">
                   <Calendar className="w-4 h-4 mr-2" />
                   Book Now
@@ -112,14 +119,17 @@ export default function Layout({ children, currentPageName }) {
 
             {/* Mobile Nav */}
             <div className="md:hidden flex items-center gap-2">
-              {/* Shopping Bag Icon */}
-              <Link to={"#"} className="mr-1">
-                <Button variant="ghost" size="icon" className="h-11 w-11 relative">
+              <Link to={createPageUrl("Services#products")} className="mr-1">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="h-11 w-11 relative"
+                >
                   <ShoppingBag className="h-5 w-5" />
                   {/* <span className="absolute top-1 right-1 w-2 h-2 bg-accent rounded-full"></span> */}
                 </Button>
               </Link>
-              
+
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon" className="h-11 w-11">
@@ -149,7 +159,11 @@ export default function Layout({ children, currentPageName }) {
                       {NAV_LINKS.map((link) => (
                         <SheetClose key={link.page} asChild>
                           <Link
-                            to={link.external ? link.page : createPageUrl(link.page)}
+                            to={
+                              link.external
+                                ? link.page
+                                : createPageUrl(link.page)
+                            }
                             className={`py-3 px-4 rounded-lg text-base font-medium transition-colors ${
                               currentPageName === link.page
                                 ? "bg-secondary text-accent"

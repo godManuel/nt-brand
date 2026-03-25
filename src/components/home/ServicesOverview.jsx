@@ -17,21 +17,21 @@ const SERVICES = [
     title: "Sisterlocks Installation",
     description:
       "Precision-installed sisterlocks using the patented technique for a natural, versatile look.",
-    image: "/sister-locs.jpg",
+    image: "/services/sisterlocs-installation.jpg",
   },
   {
     icon: Scissors,
     title: "Microlocs Installation",
     description:
       "Beautiful, uniform microlocs crafted with care for all hair types and textures.",
-    image: "/microlocs-pic.jpg",
+    image: "/services/microlocs-installation.jpg",
   },
   {
     icon: Repeat,
     title: "Retie & Maintenance",
     description:
       "Regular maintenance to keep your locs healthy, neat, and thriving at every stage.",
-    image: "/retie.jpg",
+    image: "/services/reties.jpg",
   },
   {
     icon: GraduationCap,
