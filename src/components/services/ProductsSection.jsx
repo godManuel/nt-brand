@@ -10,8 +10,7 @@ const PRODUCTS = [
     name: "Extensions",
     description:
       "Premium Brazilian Kinky Human Hair Extensions available in 3B to 4C textures, including Burmese curls. Perfect for adding length and volume with a seamless blend.",
-    image:
-      "https://images.pexels.com/photos/3807737/pexels-photo-3807737.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/products/extention-product.jpg",
     amazonLink: "#",
     whatsappMsg:
       "Hi! I'm interested in your Extensions. Do you have them in stock?",
@@ -20,8 +19,7 @@ const PRODUCTS = [
     name: "Favorite Loc Essentials",
     description:
       "Essential loc care products including moisturizing spray, loc gel, and edge control for daily maintenance and styling.",
-    image:
-      "https://images.pexels.com/photos/3998400/pexels-photo-3998400.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/products/loc-essentials.jpg",
     amazonLink: "#",
     whatsappMsg:
       "Hi! I'm interested in your Favorite Loc Essentials. Can you tell me more?",
@@ -46,8 +44,7 @@ const PRODUCTS = [
     name: "Bonnets",
     description:
       "Satin lined bonnets and extra large loc bonnets designed to protect your locs while sleeping, retain moisture, and prevent frizz.",
-    image:
-      "https://images.pexels.com/photos/4025062/pexels-photo-4025062.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/products/bonnets.jpg",
     amazonLink: "#",
     whatsappMsg:
       "Hi! I'm interested in the Bonnets. Do you have them in stock?",
@@ -56,8 +53,7 @@ const PRODUCTS = [
     name: "Hair Care Products",
     description:
       "Complete hair care collection including clarifying shampoo and loc repair treatment for healthy, beautiful locs.",
-    image:
-      "https://images.pexels.com/photos/3998407/pexels-photo-3998407.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/products/hair-care-products.jpg",
     amazonLink: "#",
     whatsappMsg: "Hi! I'm interested in your Hair Care Products.",
   },

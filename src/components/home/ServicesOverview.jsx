@@ -70,29 +70,31 @@ export default function ServicesOverview() {
               transition={{ delay: i * 0.1 }}
               className="group relative overflow-hidden rounded-2xl bg-card shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="relative h-48 md:h-56 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
-              </div>
-              <div className="p-5 md:p-6 -mt-8 relative">
-                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-3">
-                  <service.icon className="w-5 h-5 text-accent" />
+              <Link to="https://ntbranduk.as.me" target="_blank">
+                <div className="relative h-48 md:h-56 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
                 </div>
-                <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground">
-                  <Link to="https://ntbranduk.as.me" target="_blank">
-                    {" "}
-                    {service.title}
-                  </Link>
-                </h3>
-                <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
+                <div className="p-5 md:p-6 -mt-8 relative">
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-3">
+                    <service.icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground">
+                    <Link to="https://ntbranduk.as.me" target="_blank">
+                      {" "}
+                      {service.title}
+                    </Link>
+                  </h3>
+                  <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
