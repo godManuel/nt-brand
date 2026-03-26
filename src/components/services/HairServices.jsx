@@ -167,8 +167,8 @@ const ServiceCard = ({ service, index }) => {
       transition={{ delay: index * 0.08 }}
       className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border/30 hover:shadow-md transition-all duration-300 group"
     >
-      <div className="flex flex-col md:flex-row h-[300px]">
-        <div className="md:w-72 lg:w-80 h-64 md:h-auto flex-shrink-0 overflow-hidden">
+      <div className="flex flex-col md:flex-row">
+        <div className="md:w-72 lg:w-80 h-64 flex-shrink-0 overflow-hidden">
           <img
             src={service.image}
             alt={service.title}
@@ -187,6 +187,7 @@ const ServiceCard = ({ service, index }) => {
           <p className="text-muted-foreground text-sm mt-2 leading-relaxed line-clamp-3 md:line-clamp-4">
             {service.description}
           </p>
+
           <div className="flex flex-wrap gap-4 mt-4">
             <div className="flex items-center gap-1.5 text-sm text-foreground/70">
               <Clock className="w-4 h-4 text-accent" />

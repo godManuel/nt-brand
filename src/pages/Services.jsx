@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import HairServices from "../components/services/HairServices";
 import ProductsSection from "../components/services/ProductsSection";
@@ -11,6 +12,24 @@ const NAV_ITEMS = [
 ];
 
 export default function Services() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const elementId = location.hash.replace("#", "");
+      const element = document.getElementById(elementId);
+
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <div className="pb-16 md:pb-0">
       {/* Hero */}
@@ -52,6 +71,5 @@ export default function Services() {
       <ProductsSection />
       <TrainingSection />
     </div>
-    
   );
 }

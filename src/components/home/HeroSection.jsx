@@ -51,13 +51,14 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <Link
-              to="https://ntbranduk.as.me"
-              className="flex gap-2 items-center w-full sm:w-auto h-13 md:h-14 px-8 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full text-sm md:text-base font-semibold shadow-lg"
-              target="_blank"
-            >
-              <Calendar className="w-5 h-5 mr-2" />
-              Book Consultation
+            <Link to="https://ntbranduk.as.me" target="_blank">
+              <Button
+                className="gap-2 w-full sm:w-auto h-13 md:h-14 px-8 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full text-sm md:text-base font-semibold shadow-lg"
+                target="_blank"
+              >
+                <Calendar className="w-5 h-5 mr-2" />
+                Book Consultation
+              </Button>
             </Link>
 
             {/* <a
