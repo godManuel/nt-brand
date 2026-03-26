@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import {
   Menu,
@@ -22,6 +22,7 @@ const NAV_LINKS = [
   { label: "Home", page: "Home" },
   { label: "About", page: "About" },
   { label: "Services", page: "Services" },
+  { label: "Products", page: "Products" },
   { label: "Book", page: "https://ntbranduk.as.me", external: true },
   { label: "Policy", page: "Policy" },
 ];
@@ -42,10 +43,16 @@ const ADMIN_PAGES = [
 ];
 
 export default function Layout({ children, currentPageName }) {
+  const location = useLocation();
+
   const isAdmin = ADMIN_PAGES.includes(currentPageName);
   if (isAdmin) return <>{children}</>;
 
   const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -75,10 +82,6 @@ export default function Layout({ children, currentPageName }) {
                   src="/logo.png"
                   alt="NT BRAND LTD Logo"
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = "/fallback-logo.png"; // Optional fallback
-                  }}
                 />
               </div>
 
@@ -119,7 +122,7 @@ export default function Layout({ children, currentPageName }) {
 
             {/* Mobile Nav */}
             <div className="md:hidden flex items-center gap-2">
-              <Link to={createPageUrl("Services#products")} className="mr-1">
+              <Link to={createPageUrl("Products")} className="mr-1">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -175,23 +178,8 @@ export default function Layout({ children, currentPageName }) {
                           </Link>
                         </SheetClose>
                       ))}
-                      {/* Products link in mobile nav */}
-                      <SheetClose asChild>
-                        <Link
-                          to={createPageUrl("Products")}
-                          className={`py-3 px-4 rounded-lg text-base font-medium transition-colors ${
-                            currentPageName === "Products"
-                              ? "bg-secondary text-accent"
-                              : "text-foreground/70 hover:bg-secondary"
-                          }`}
-                        >
-                          <div className="flex items-center gap-2">
-                            <ShoppingBag className="w-4 h-4" />
-                            Products
-                          </div>
-                        </Link>
-                      </SheetClose>
                     </nav>
+
                     <div className="mt-auto p-6 space-y-3">
                       <SheetClose asChild>
                         <Link
