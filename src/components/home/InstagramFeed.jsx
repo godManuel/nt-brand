@@ -1,0 +1,104 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Instagram, Heart, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const POSTS = [
+  {
+    image: "/instagram/first-post.jpg",
+    likes: 234,
+    link: "https://www.instagram.com/p/DUdrPK3DbJU/?img_index=4",
+  },
+  {
+    image: "/instagram/second-post.jpg",
+    likes: 189,
+    link: "https://www.instagram.com/p/DUQTi9ojZ0Q/?img_index=2",
+  },
+  {
+    image: "/instagram/third-post.jpg",
+    likes: 312,
+    link: "https://www.instagram.com/p/DUQTi9ojZ0Q/?img_index=2",
+  },
+  {
+    image: "/instagram/fourth-post.jpg",
+    likes: 156,
+    link: "https://www.instagram.com/p/DS8MAZMDZga/?img_index=2",
+  },
+  {
+    image: "/instagram/fifth-post.jpg",
+    likes: 278,
+    link: "https://www.instagram.com/p/DTF-BftDT72/?img_index=2",
+  },
+  {
+    image: "/instagram/sixth-post.jpg",
+    likes: 198,
+    link: "https://www.instagram.com/p/DSdhfQKDVUf/?img_index=2",
+  },
+];
+
+export default function InstagramFeed() {
+  return (
+    <section className="py-16 md:py-24 bg-secondary/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-10 md:mb-14"
+        >
+          <Instagram className="w-8 h-8 text-accent mx-auto mb-3" />
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground">
+            Follow Our Journey
+          </h2>
+          <p className="text-muted-foreground mt-3 text-sm">@hairbynt_uk</p>
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          {POSTS.map((post, i) => (
+            <motion.a
+              key={i}
+              href={post.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className="group relative aspect-square overflow-hidden rounded-xl"
+            >
+              <img
+                src={post.image}
+                alt="Instagram post"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-300 flex items-center justify-center">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2 text-white">
+                  <Heart className="w-5 h-5" />
+                  <span className="font-medium text-sm">{post.likes}</span>
+                </div>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+
+        <div className="text-center mt-8">
+          <a
+            href="https://www.instagram.com/hairbynt_uk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              variant="outline"
+              className="h-12 px-8 rounded-full border-accent text-accent hover:bg-accent hover:text-accent-foreground font-medium"
+            >
+              <Instagram className="w-4 h-4 mr-2" />
+              Follow Us on Instagram
+            </Button>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
