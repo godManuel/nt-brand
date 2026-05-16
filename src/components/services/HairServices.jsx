@@ -71,7 +71,7 @@ const ADDITIONAL_SERVICES = [
     description:
       "Professional grooming service to shape and style your locs for a polished, well-maintained look.",
     duration: "30-60 mins",
-    priceRange: "From £345",
+    priceRange: "From £45",
     image: "/services/grooming.jpg",
     icon: Scissors,
     whatsappMsg: "Hi! I'd like to book a grooming appointment.",
@@ -141,7 +141,7 @@ const ADDITIONAL_SERVICES = [
     description:
       "Add length and volume with beautiful curly tip extensions that blend seamlessly with your natural locs.",
     duration: "6-12 hours",
-    priceRange: "From £120",
+    priceRange: "From £260",
     image: "/services/curly-tips-extention.jpg",
     icon: Sparkles,
     whatsappMsg: "Hi! I'm interested in curly tip extensions.",

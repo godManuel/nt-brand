@@ -22,6 +22,7 @@ const NAV_LINKS = [
   { label: "Home", page: "Home" },
   { label: "About", page: "About" },
   { label: "Services", page: "Services" },
+  { label: "Blog", page: "Blog" },
   { label: "Products", page: "Products" },
   { label: "Book", page: "https://ntbranduk.as.me", external: true },
   { label: "Policy", page: "Policy" },

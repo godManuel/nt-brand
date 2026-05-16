@@ -1,8 +1,17 @@
-export function createPageUrl(pageName: string) {
-  return "/" + pageName.replace(/ /g, "-");
+export function createPageUrl(
+  pageName: string,
+  params: { [key: string]: string } = {},
+): string {
+  const baseUrl = `/${pageName.replace(/ /g, "-")}`;
+
+  if (pageName === "BlogPost" && params.id) {
+    return `/BlogPost/${params.id}`;
+  }
+
+  return baseUrl;
 }
 
-export const formatTimeNative = (datetime) => {
+export const formatTimeNative = (datetime: string) => {
   if (!datetime) return "";
 
   const date = new Date(datetime);
@@ -19,7 +28,7 @@ export const formatTimeNative = (datetime) => {
   // Returns: "2:30 PM"
 };
 
-export const formatDateTime = (datetime) => {
+export const formatDateTime = (datetime: string) => {
   // Extract the date and time parts
   const match = datetime.match(/(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})/);
   if (!match) return datetime;
