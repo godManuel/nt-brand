@@ -28,6 +28,8 @@ function App() {
           }
         />
 
+        <Route path="*" element={<PageNotFound />} />
+
         {Object.entries(Pages).map(([path, Page]) => (
           <Route
             key={path}
@@ -39,7 +41,6 @@ function App() {
             }
           />
         ))}
-        <Route path="*" element={<PageNotFound />} />
       </Routes>
 
       <Toaster />
