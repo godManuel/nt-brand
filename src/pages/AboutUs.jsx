@@ -29,14 +29,14 @@ const PRODUCTS = [
   {
     name: "ACV Rinse Clarifying Shampoo",
     description: "Deep cleansing shampoo for healthy locs",
-    price: "£12.99",
+    // price: "£",
     amazonUrl: "https://amzn.to/4t1oc6e",
     image: "/products/acv-rinse.jpg",
   },
   {
     name: "Suave Clarifying Shampoo",
     description: "Gentle clarifying formula for all hair types",
-    price: "£8.99",
+    // price: "£8.99",
     amazonUrl: "https://amzn.to/3NpCmyN",
     image: "/products/suave-shampoo.jpg",
   },

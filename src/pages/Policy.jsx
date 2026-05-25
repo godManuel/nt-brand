@@ -1,18 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  Calendar, 
-  Clock, 
-  PoundSterlingIcon, 
-  CheckCircle2, 
-  XCircle, 
+import {
+  Calendar,
+  Clock,
+  PoundSterlingIcon,
+  CheckCircle2,
+  XCircle,
   AlertCircle,
   Sparkles,
   FileText,
   UserCheck,
   BadgeCheck,
   Scissors,
-  Heart
+  Heart,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -57,8 +57,9 @@ export default function Policy() {
             <span>Welcome to HairbyNT</span>
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            We're excited to support your Microloc journey. Please review our transfer policy 
-            to ensure a smooth transition and the best care for your locs.
+            We're excited to support your Microloc journey. Please review our
+            transfer policy to ensure a smooth transition and the best care for
+            your locs.
           </p>
         </motion.div>
 
@@ -78,12 +79,15 @@ export default function Policy() {
                 1. Consultation (Mandatory)
               </h2>
               <p className="text-muted-foreground mb-3">
-                All transfer clients must complete a virtual consultation before their first retie.
+                A non-refundable virtual consultation is required for your first
+                retie appointment.
               </p>
               <div className="bg-secondary/30 rounded-xl p-4 mt-3">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                   <div>
-                    <p className="font-medium text-foreground">Virtual Consultation Fee</p>
+                    <p className="font-medium text-foreground">
+                      Virtual Consultation Fee
+                    </p>
                     <p className="text-2xl font-bold text-accent">£15</p>
                   </div>
                   <div className="text-sm text-muted-foreground">
@@ -109,22 +113,29 @@ export default function Policy() {
             </div>
             <div className="flex-1">
               <h2 className="text-xl md:text-2xl font-semibold text-foreground mb-2">
-                2. Eligibility Requirements
+                2. Eligibility
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                 <div className="bg-green-500/5 border border-green-500/20 rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-medium text-foreground">Required</span>
+                    <span className="font-medium text-foreground">
+                      Required
+                    </span>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Last retie within <span className="font-semibold text-foreground">10 weeks</span>
+                    Last retie within{" "}
+                    <span className="font-semibold text-foreground">
+                      10 weeks
+                    </span>
                   </p>
                 </div>
                 <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <XCircle className="w-5 h-5 text-red-500" />
-                    <span className="font-medium text-foreground">Not Accepted</span>
+                    <span className="font-medium text-foreground">
+                      Not Accepted
+                    </span>
                   </div>
                   <p className="text-sm text-muted-foreground">
                     Loc extensions
@@ -135,7 +146,7 @@ export default function Policy() {
                 <div className="flex items-start gap-2">
                   <AlertCircle className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-muted-foreground">
-                    If these requirements are not met, the service cannot proceed.
+                    If these are not met, service cannot proceed.
                   </p>
                 </div>
               </div>
@@ -156,25 +167,46 @@ export default function Policy() {
             </div>
             <div className="flex-1">
               <h2 className="text-xl md:text-2xl font-semibold text-foreground mb-4">
-                3. Pricing Structure
+                3. Pricing
               </h2>
-              <div className="space-y-4">
-                <div className="border-b border-border pb-4">
-                  <p className="font-medium text-foreground mb-2">First Retie</p>
-                  <p className="text-2xl font-bold text-accent">£130</p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    For retie within 6 weeks timeframe
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Additional cost for extra weeks overdue
-                  </p>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center border-b border-border py-2">
+                  <span className="font-medium">200-299 locs</span>
+                  <span className="text-xl font-bold text-accent">£90</span>
                 </div>
-                <div>
-                  <p className="font-medium text-foreground mb-2">Subsequent Reties</p>
-                  <p className="text-2xl font-bold text-accent">From £90</p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Priced by loc count and undergrowth assessment
-                  </p>
+                <div className="flex justify-between items-center border-b border-border py-2">
+                  <span className="font-medium">300-399 locs</span>
+                  <span className="text-xl font-bold text-accent">£100</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-border py-2">
+                  <span className="font-medium">400-500 locs</span>
+                  <span className="text-xl font-bold text-accent">£120</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-border py-2">
+                  <span className="font-medium">500-599 locs</span>
+                  <span className="text-xl font-bold text-accent">£150</span>
+                </div>
+              </div>
+              <div className="mt-5 p-4 bg-secondary/30 rounded-xl">
+                <div className="flex items-start gap-2">
+                  <AlertCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <div className="text-sm text-muted-foreground space-y-1">
+                    <p>
+                      <span className="font-medium text-foreground">
+                        Please Note:
+                      </span>{" "}
+                      These prices apply to clients returning within 7 weeks of
+                      undergrowth.
+                    </p>
+                    <p>
+                      An additional charge will apply for each week beyond this
+                      period due to increased undergrowth.
+                    </p>
+                    <p>
+                      Extra fees also apply for excessive undergrowth,
+                      reconstruction, or touch-ups.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -197,24 +229,18 @@ export default function Policy() {
                 4. Service Includes
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {[
-                  "Full retie",
-                  "Grid reconstruction (if needed)",
-                  "Minor repair of damaged/unraveled locs",
-                  "Basic styling"
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
-                    <span className="text-sm text-foreground">{item}</span>
-                  </div>
-                ))}
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                  <span className="text-sm text-foreground">Full retie</span>
+                </div>
               </div>
               <div className="mt-4 p-4 bg-secondary/30 rounded-xl">
                 <div className="flex items-start gap-2">
                   <Clock className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-muted-foreground">
-                    <span className="font-medium text-foreground">Note:</span> Transfer reties may take longer 
-                    due to grid differences or gaps in maintenance.
+                    <span className="font-medium text-foreground">Note:</span>{" "}
+                    Transfer reties may take longer due to grid differences or
+                    gaps in maintenance.
                   </p>
                 </div>
               </div>
@@ -241,7 +267,7 @@ export default function Policy() {
                 {[
                   "Loc count",
                   "Date of installation / last retie",
-                  "No extensions (service cannot proceed if yes)"
+                  "No extensions (service cannot proceed if yes)",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full border-2 border-accent flex items-center justify-center">
@@ -268,7 +294,7 @@ export default function Policy() {
               We look forward to supporting your Microloc journey ✨
             </p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="https://ntbranduk.as.me" target="_blank">
               <Button className="h-12 px-8 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium">

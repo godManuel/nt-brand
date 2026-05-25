@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 const SERVICES = [
   {
     icon: Sparkles,
-    title: "Sisterlocks Installation",
+    title: "Sisterlocks™️ Installation",
     description:
       "Precision-installed sisterlocks using the patented technique for a natural, versatile look.",
     image: "/services/sisterlocs-installation.jpg",

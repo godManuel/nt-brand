@@ -24,14 +24,14 @@ const PRODUCTS = [
     whatsappMsg:
       "Hi! I'm interested in your Favorite Loc Essentials. Can you tell me more?",
   },
-  {
-    name: "ACV Rinse Clarifying Shampoo",
-    description:
-      "Apple Cider Vinegar Clarifying Rinse is a unique deep cleanser that is perfect for removing weekly product build-up without stripping hair of its moisture.",
-    image: "/products/acv.jpg",
-    amazonLink: "https://amzn.to/4t1oc6e",
-    whatsappMsg: "Hi! I'm interested in the ACV Rinse. Is it available?",
-  },
+  // {
+  //   name: "ACV Rinse Clarifying Shampoo",
+  //   description:
+  //     "Apple Cider Vinegar Clarifying Rinse is a unique deep cleanser that is perfect for removing weekly product build-up without stripping hair of its moisture.",
+  //   image: "/products/acv.jpg",
+  //   amazonLink: "https://amzn.to/4t1oc6e",
+  //   whatsappMsg: "Hi! I'm interested in the ACV Rinse. Is it available?",
+  // },
   {
     name: "Suave Clarifying Shampoo",
     description:
@@ -56,6 +56,14 @@ const PRODUCTS = [
     image: "/products/hair-care-products.jpg",
     amazonLink: "#",
     whatsappMsg: "Hi! I'm interested in your Hair Care Products.",
+  },
+  {
+    name: "Brazilian Hair Extensions",
+    description:
+      "Our Brazilian Kinky Human Hair Extensions are designed to celebrate the beauty of natural textured hair with a seamless, authentic blend.",
+    image: "/services/kinky-extention.jpg",
+    whatsappMsg: "Hi! I'm interested in Brazilian hair extensions.",
+    amazonLink: "#",
   },
 ];
 

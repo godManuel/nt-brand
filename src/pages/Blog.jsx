@@ -36,9 +36,9 @@ const BLOG_POSTS = [
   },
   {
     id: 2,
-    title: "Sisterlocks vs Microlocs: What's the Difference?",
+    title: "Sisterlocks™️ vs Microlocs: What's the Difference?",
     excerpt:
-      "A detailed comparison between Sisterlocks and Microlocs to help you choose the right loc system for your hair type and lifestyle goals.",
+      "A detailed comparison between Sisterlocks™️ and Microlocs to help you choose the right loc system for your hair type and lifestyle goals.",
     image:
       "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=800",
     author: "Nadege T",
@@ -46,7 +46,7 @@ const BLOG_POSTS = [
     date: "March 10, 2026",
     readTime: "6 min read",
     category: "Education",
-    tags: ["Sisterlocks", "Microlocs", "Comparison"],
+    tags: ["Sisterlocks™️", "Microlocs", "Comparison"],
     featured: false,
   },
   {
@@ -137,7 +137,7 @@ const CATEGORIES = [
 
 const POPULAR_TAGS = [
   "Microlocs",
-  "Sisterlocks",
+  "Sisterlocks™️",
   "Loc Care",
   "Maintenance",
   "Retie",

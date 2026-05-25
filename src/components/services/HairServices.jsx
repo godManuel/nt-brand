@@ -146,16 +146,6 @@ const ADDITIONAL_SERVICES = [
     icon: Sparkles,
     whatsappMsg: "Hi! I'm interested in curly tip extensions.",
   },
-  {
-    title: "Brazilian Hair Extensions",
-    description:
-      "Our Brazilian Kinky Human Hair Extensions are designed to celebrate the beauty of natural textured hair with a seamless, authentic blend.",
-    duration: "2-4 hours",
-    priceRange: "From £55",
-    image: "/services/kinky-extention.jpg",
-    icon: Sparkles,
-    whatsappMsg: "Hi! I'm interested in Brazilian hair extensions.",
-  },
 ];
 
 const ServiceCard = ({ service, index }) => {

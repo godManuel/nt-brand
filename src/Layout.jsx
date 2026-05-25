@@ -130,7 +130,7 @@ export default function Layout({ children, currentPageName }) {
                   className="h-11 w-11 relative"
                 >
                   <ShoppingBag className="h-5 w-5" />
-                  {/* <span className="absolute top-1 right-1 w-2 h-2 bg-accent rounded-full"></span> */}
+                  <span className="absolute top-1 right-1 w-2 h-2 bg-accent rounded-full"></span>
                 </Button>
               </Link>
 
@@ -257,12 +257,6 @@ export default function Layout({ children, currentPageName }) {
                     {link.label}
                   </Link>
                 ))}
-                <Link
-                  to={createPageUrl("Products")}
-                  className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                >
-                  Products
-                </Link>
               </div>
             </div>
             <div>
