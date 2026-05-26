@@ -5,7 +5,7 @@ import HairServices from "../components/services/HairServices";
 import TrainingSection from "../components/services/TrainingSection";
 
 const NAV_ITEMS = [
-  { label: "Hair Services", href: "#hair-services" },
+  { label: "Locs Services", href: "#locs-services" },
   { label: "Training", href: "#training" },
 ];
 

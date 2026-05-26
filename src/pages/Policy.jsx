@@ -5,7 +5,7 @@ import {
   Clock,
   PoundSterlingIcon,
   CheckCircle2,
-  XCircle,
+  XCircle, 
   AlertCircle,
   Sparkles,
   FileText,

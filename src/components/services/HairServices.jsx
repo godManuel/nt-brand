@@ -217,7 +217,7 @@ const ServiceCard = ({ service, index }) => {
 
 export default function HairServices() {
   return (
-    <section id="hair-services" className="py-16 md:py-24">
+    <section id="locs-services" className="py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -229,7 +229,7 @@ export default function HairServices() {
             Services
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-semibold text-foreground mt-3">
-            Hair Services
+            Locs Services
           </h2>
           <p className="text-muted-foreground mt-3 max-w-lg text-sm md:text-base">
             From installation to maintenance, we offer comprehensive loc
