@@ -11,10 +11,10 @@ const TEAM = [
     instagram: "#",
   },
   {
-    name: "Tosin Peace",
-    role: "Senior Loctician",
-    image: "/female-avatar-1.jpg",
-    bio: "Expert in microloc installation and creative styling with 8 years of dedicated loc experience.",
+    name: "Meet Tash",
+    role: "Loc Specialist",
+    image: "/tash.jpeg",
+    bio: `With over 9 years of experience, Tash is a trusted loc specialist, scalp health advocate, and HairbyNT’s renowned “Tension Control Queen.” Known for her gentle hands and expert maintenance techniques, she is passionate about creating beautiful, healthy locs while prioritising scalp comfort and long-term hair health. \nFrom nurturing starter locs to maintaining mature locs, Tash brings precision, care, and positive energy to every appointment. Her goal is simple: to help every client achieve healthy, thriving locs while feeling confident, comfortable, and cared for throughout their journey.`,
     instagram: "#",
   },
   {
@@ -81,9 +81,21 @@ export default function TeamSection() {
               <p className="text-accent text-sm font-medium mt-1">
                 {member.role}
               </p>
-              <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
-                {member.bio}
-              </p>
+              {member.bio.includes("\n") ? (
+                member.bio.split("\n").map((line, idx) => (
+                  <p
+                    key={idx}
+                    className="text-muted-foreground text-sm mt-2 leading-relaxed"
+                  >
+                    {line}
+                  </p>
+                ))
+              ) : (
+                <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
+                  {member.bio}
+                </p>
+              )}
+
               <a
                 href={member.instagram}
                 target="_blank"
