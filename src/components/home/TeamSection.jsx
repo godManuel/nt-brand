@@ -17,13 +17,13 @@ const TEAM = [
     bio: `With over 9 years of experience, Tash is a trusted loc specialist, scalp health advocate, and HairbyNT’s renowned “Tension Control Queen.” Known for her gentle hands and expert maintenance techniques, she is passionate about creating beautiful, healthy locs while prioritising scalp comfort and long-term hair health. \nFrom nurturing starter locs to maintaining mature locs, Tash brings precision, care, and positive energy to every appointment. Her goal is simple: to help every client achieve healthy, thriving locs while feeling confident, comfortable, and cared for throughout their journey.`,
     instagram: "#",
   },
-  // {
-  //   name: "Tasha",
-  //   role: "Loc Maintenance Expert",
-  //   image: "/female-avatar-2.jpg",
-  //   bio: "Passionate about loc health and maintenance, ensuring every client's locs thrive beautifully.",
-  //   instagram: "#",
-  // },
+  {
+    name: "Tasha",
+    role: "Loc Maintenance Expert",
+    image: "/female-avatar-2.jpg",
+    bio: "Passionate about loc health and maintenance, ensuring every client's locs thrive beautifully.",
+    instagram: "#",
+  },
 ];
 
 export default function TeamSection() {
