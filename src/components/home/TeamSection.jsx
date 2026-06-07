@@ -4,10 +4,10 @@ import { Instagram, Award } from "lucide-react";
 
 const TEAM = [
   {
-    name: "Elizabeth Idowu",
+    name: "Meet Elizabeth",
     role: "Salon Manager/Managing Director",
-    image: "/ceo.jpg",
-    bio: "Certified Sisterlocks consultant with 10+ years of experience specializing in fine and textured hair.",
+    image: "/ceo.jpeg",
+    bio: "Elizabeth is the Founder and Creative Director of HairbyNT, a trained Sisterlocks™️ Practitioner, microloc specialist, educator, and mentor with 4 years of specialised microlocs experience. \nHaving worked extensively with a wide range of Afro-textured hair types, Elizabeth is known for her precision, professionalism, and ability to create customised loc journeys that support both hair health and lifestyle goals.\nWhether guiding a client through their first microloc installation or mentoring aspiring locticians, her mission is to empower others with the knowledge, confidence, and support needed to build and maintain thriving, healthy locs.",
     instagram: "#",
   },
   {
@@ -17,13 +17,13 @@ const TEAM = [
     bio: `With over 9 years of experience, Tash is a trusted loc specialist, scalp health advocate, and HairbyNT’s renowned “Tension Control Queen.” Known for her gentle hands and expert maintenance techniques, she is passionate about creating beautiful, healthy locs while prioritising scalp comfort and long-term hair health. \nFrom nurturing starter locs to maintaining mature locs, Tash brings precision, care, and positive energy to every appointment. Her goal is simple: to help every client achieve healthy, thriving locs while feeling confident, comfortable, and cared for throughout their journey.`,
     instagram: "#",
   },
-  {
-    name: "Tasha",
-    role: "Loc Maintenance Expert",
-    image: "/female-avatar-2.jpg",
-    bio: "Passionate about loc health and maintenance, ensuring every client's locs thrive beautifully.",
-    instagram: "#",
-  },
+  // {
+  //   name: "Tasha",
+  //   role: "Loc Maintenance Expert",
+  //   image: "/female-avatar-2.jpg",
+  //   bio: "Passionate about loc health and maintenance, ensuring every client's locs thrive beautifully.",
+  //   instagram: "#",
+  // },
 ];
 
 export default function TeamSection() {
