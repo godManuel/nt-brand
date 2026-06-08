@@ -19,6 +19,9 @@ import {
 import { motion } from "framer-motion";
 
 const WHATSAPP_NUMBER = "+447407326662";
+const WHATSAPP_MSG = encodeURIComponent(
+  "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.",
+);
 
 const PRIMARY_SERVICES = [
   {
@@ -189,7 +192,10 @@ const ServiceCard = ({ service, index }) => {
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 mt-6 pt-4">
-            <Link to="https://ntbranduk.as.me" target="_blank">
+            <Link
+              to={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(service.whatsappMsg)}`}
+              target="_blank"
+            >
               <Button className="w-full sm:w-auto h-12 px-6 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-sm font-medium">
                 <Calendar className="w-4 h-4 mr-2" />
                 Book Now

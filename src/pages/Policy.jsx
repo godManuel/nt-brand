@@ -5,7 +5,7 @@ import {
   Clock,
   PoundSterlingIcon,
   CheckCircle2,
-  XCircle, 
+  XCircle,
   AlertCircle,
   Sparkles,
   FileText,
@@ -296,7 +296,10 @@ export default function Policy() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="https://ntbranduk.as.me" target="_blank">
+            <Link
+              to={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.")}`}
+              target="_blank"
+            >
               <Button className="h-12 px-8 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium">
                 <Calendar className="w-4 h-4 mr-2" />
                 Book Consultation

@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Calendar, MessageCircle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-// const WHATSAPP_NUMBER = "+447407326662";
-// const WHATSAPP_MSG = encodeURIComponent(
-//   "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.",
-// );
+const WHATSAPP_NUMBER = "+447407326662";
+const WHATSAPP_MSG = encodeURIComponent(
+  "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.",
+);
 
 export default function HeroSection() {
   return (
@@ -51,7 +51,11 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <Link to="https://ntbranduk.as.me" target="_blank">
+            <Link
+              to={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 className="gap-2 w-full sm:w-auto h-13 md:h-14 px-8 bg-accent hover:bg-accent/90 text-accent-foreground rounded-full text-sm md:text-base font-semibold shadow-lg"
                 target="_blank"

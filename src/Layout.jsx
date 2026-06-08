@@ -18,20 +18,24 @@ import {
 } from "@/components/ui/sheet";
 import { motion, AnimatePresence } from "framer-motion";
 
+const WHATSAPP_NUMBER = "+447407326662";
+const WHATSAPP_MSG = encodeURIComponent(
+  "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.",
+);
+
 const NAV_LINKS = [
   { label: "Home", page: "Home" },
   { label: "About", page: "About" },
   { label: "Services", page: "Services" },
   { label: "Blog", page: "Blog" },
   { label: "Products", page: "Products" },
-  { label: "Book", page: "https://ntbranduk.as.me", external: true },
+  {
+    label: "Book",
+    page: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`,
+    external: true,
+  },
   { label: "Policy", page: "Policy" },
 ];
-
-const WHATSAPP_NUMBER = "+447407326662";
-const WHATSAPP_MSG = encodeURIComponent(
-  "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.",
-);
 
 const ADMIN_PAGES = [
   "AdminDashboard",
@@ -113,7 +117,12 @@ export default function Layout({ children, currentPageName }) {
                   {link.label}
                 </Link>
               ))}
-              <Link to="https://ntbranduk.as.me" target="_blank">
+              <Link
+                to={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground h-11 px-6 rounded-full text-sm font-medium">
                   <Calendar className="w-4 h-4 mr-2" />
                   Book Now

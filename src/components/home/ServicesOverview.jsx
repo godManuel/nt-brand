@@ -11,6 +11,11 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
+const WHATSAPP_NUMBER = "+447407326662";
+const WHATSAPP_MSG = encodeURIComponent(
+  "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.",
+);
+
 const SERVICES = [
   {
     icon: Sparkles,
@@ -70,7 +75,10 @@ export default function ServicesOverview() {
               transition={{ delay: i * 0.1 }}
               className="group relative overflow-hidden rounded-2xl bg-card shadow-sm hover:shadow-md transition-shadow"
             >
-              <Link to="https://ntbranduk.as.me" target="_blank">
+              <Link
+                to={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`}
+                target="_blank"
+              >
                 <div className="relative h-48 md:h-56 overflow-hidden">
                   <img
                     src={service.image}
@@ -85,7 +93,10 @@ export default function ServicesOverview() {
                     <service.icon className="w-5 h-5 text-accent" />
                   </div>
                   <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground">
-                    <Link to="https://ntbranduk.as.me" target="_blank">
+                    <Link
+                      to={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`}
+                      target="_blank"
+                    >
                       {" "}
                       {service.title}
                     </Link>
