@@ -12,9 +12,8 @@ import {
 import { motion } from "framer-motion";
 
 const WHATSAPP_NUMBER = "+447407326662";
-const WHATSAPP_MSG = encodeURIComponent(
-  "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.",
-);
+const WHATSAPP_MSG =
+  "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.";
 
 const SERVICES = [
   {

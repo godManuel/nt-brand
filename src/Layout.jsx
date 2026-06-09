@@ -121,7 +121,6 @@ export default function Layout({ children, currentPageName }) {
                 to={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                target="_blank"
               >
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground h-11 px-6 rounded-full text-sm font-medium">
                   <Calendar className="w-4 h-4 mr-2" />

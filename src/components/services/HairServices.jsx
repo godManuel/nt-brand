@@ -19,9 +19,6 @@ import {
 import { motion } from "framer-motion";
 
 const WHATSAPP_NUMBER = "+447407326662";
-const WHATSAPP_MSG = encodeURIComponent(
-  "Hi! I'm interested in learning more about your Microlocs/Sisterlocks services.",
-);
 
 const PRIMARY_SERVICES = [
   {
@@ -201,6 +198,7 @@ const ServiceCard = ({ service, index }) => {
                 Book Now
               </Button>
             </Link>
+
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(service.whatsappMsg)}`}
               target="_blank"
