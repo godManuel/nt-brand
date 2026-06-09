@@ -312,7 +312,11 @@ export default function Layout({ children, currentPageName }) {
 
       {/* Sticky Book Button (Mobile Only) */}
       <div className="fixed bottom-0 left-0 right-0 md:hidden z-40 bg-background/95 backdrop-blur-md border-t border-border px-4 py-2.5">
-        <Link to={createPageUrl("BookConsultation")}>
+        <Link
+          to={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I'd like to book a consultation session.")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-sm font-semibold">
             <Calendar className="w-4 h-4 mr-2" />
             Book Your Consultation
